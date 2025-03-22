@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap Counter - Click Counter Web App</title>
+    <meta name="description" content="A simple and interactive tap counter web app that counts clicks anywhere on the screen. Includes reset and decrement buttons.">
+    <meta name="keywords" content="tap counter, click counter, online counter, web counter, counter app">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Tap Counter - Click Counter Web App">
+    <meta property="og:description" content="A simple online counter that tracks clicks and taps with reset and decrement features.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://superwebtools.tap-counter.github.io">
+    <meta property="og:image" content="https://superwebtools.tap-counter.github.io/preview-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tap Counter - Click Counter Web App">
+    <meta name="twitter:description" content="A simple online tap counter that tracks clicks with reset and decrement buttons.">
+    <meta name="twitter:image" content="https://superwebtools.tap-counter.github.io/preview-image.jpg">
+    <meta name="google-site-verification" content="T_HsYRkrct7ww2_320HQalNC3k1MjrEguBr9pMDgw34" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            user-select: none;
+        }
+        .counter {
+            font-size: 4rem;
+            margin: 20px 0;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+        button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .reset { background-color: #ff4d4d; color: white; }
+        .decrement { background-color: #4d79ff; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Tap Counter</h1>
+    <div class="counter" id="counter">0</div>
+    <div class="buttons">
+        <button class="reset" onclick="resetCounter()">Reset</button>
+        <button class="decrement" onclick="decrementCounter()">-1</button>
+    </div>
+    <script>
+        let count = 0;
+        
+        document.body.addEventListener("click", function (event) {
+            if (!event.target.matches("button")) {
+                count++;
+                document.getElementById("counter").textContent = count;
+            }
+        });
+        
+        function resetCounter() {
+            count = 0;
+            document.getElementById("counter").textContent = count;
+        }
+        
+        function decrementCounter() {
+            if (count > 0) {
+                count--;
+                document.getElementById("counter").textContent = count;
+            }
+        }
+    </script>
+</body>
+</html>
